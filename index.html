@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Editor Local Avançado — Offline</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <h1>Editor Local Avançado</h1>
+    <p class="subtitle">Offline • Sintaxe colorida • Auto‑salva • Salva/Carrega projetos • Exportável</p>
+  </div>
+</header>
+
+<main class="container">
+  <section class="panel top-controls">
+    <div class="controls">
+      <div class="left">
+        <label class="small muted">Projeto:</label>
+        <input id="project-name" class="proj-input" placeholder="Meu projeto local">
+        <button id="new-proj" class="btn">Novo</button>
+        <button id="save-local" class="btn">Salvar (localStorage)</button>
+        <button id="download-json" class="btn">Exportar (.json)</button>
+        <input id="file-input" type="file" style="display:none" accept="application/json">
+        <button id="import-json" class="btn">Importar (.json)</button>
+      </div>
+      <div class="right">
+        <label class="small muted">Auto‑salvar</label>
+        <label class="switch">
+          <input type="checkbox" id="autosave-toggle" checked>
+          <span class="switch-slider"></span>
+        </label>
+        <button id="download-html" class="btn primary">Baixar como .html</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel editor-panel">
+    <div class="editor-grid">
+      <div class="editor-column editor-code">
+        <div class="editor-header"><span>HTML</span></div>
+        <div class="code-wrap" data-lang="html" id="html-wrap">
+          <pre class="highlight" id="html-highlight"></pre>
+          <textarea id="html-code" spellcheck="false" class="code-input"></textarea>
+        </div>
+      </div>
+
+      <div class="editor-column editor-code">
+        <div class="editor-header"><span>CSS</span></div>
+        <div class="code-wrap" data-lang="css" id="css-wrap">
+          <pre class="highlight" id="css-highlight"></pre>
+          <textarea id="css-code" spellcheck="false" class="code-input"></textarea>
+        </div>
+      </div>
+
+      <div class="editor-column editor-code">
+        <div class="editor-header"><span>JS</span></div>
+        <div class="code-wrap" data-lang="js" id="js-wrap">
+          <pre class="highlight" id="js-highlight"></pre>
+          <textarea id="js-code" spellcheck="false" class="code-input"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="editor-actions">
+      <button id="run-btn" class="btn primary">Executar</button>
+      <button id="reset-btn" class="btn">Reset</button>
+      <label class="small muted">Auto‑Render</label>
+      <label class="switch">
+        <input type="checkbox" id="autorender-toggle" checked>
+        <span class="switch-slider"></span>
+      </label>
+      <button id="clear-storage" class="btn">Limpar armazenamento</button>
+    </div>
+
+    <div class="preview-wrap">
+      <iframe id="preview" title="Preview" sandbox="allow-scripts allow-same-origin"></iframe>
+    </div>
+  </section>
+
+  <section class="panel notes">
+    <h3>Instruções rápidas</h3>
+    <ul>
+      <li>Edite HTML/CSS/JS e clique em <strong>Executar</strong> para ver o resultado.</li>
+      <li>O editor salva automaticamente no <code>localStorage</code> se a opção <em>Auto‑salvar</em> estiver ligada.</li>
+      <li>Use <em>Exportar (.json)</em> para gerar um arquivo que pode ser importado posteriormente.</li>
+      <li>Use <em>Baixar como .html</em> para obter uma página autônoma com o seu código.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> — Editor Local Avançado</p>
+    <p class="muted">100% offline • Preparado para integração com servidor.</p>
+  </div>
+</footer>
+
+<script src="highlight-engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
